@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Intelligence Engineer Portfolio - Benjamin Wood</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- BI Engineer Design: Executive, Polished, Orange/Deep Gray --- */
+        :root {
+            --bie-primary: #FF5722; /* Deep Orange */
+            --bie-accent: #607D8B; /* Blue Gray */
+            --bie-background: #FAFAFA;
+            --bie-dark: #212121;
+            --bie-text: #424242;
+            --bie-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--bie-text);
+            background: var(--bie-background);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; color: var(--bie-primary); transition: color 0.3s; }
+        .section { padding: 80px 0; }
+
+        /* --- Header/Profile Area --- */
+        .bie-header {
+            background: var(--bie-dark);
+            color: white;
+            padding: 40px 0;
+            border-bottom: 8px solid var(--bie-primary);
+        }
+
+        .bie-profile-area {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        
+        .bie-left-panel {
+            flex-shrink: 0;
+            width: 250px;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            padding-right: 40px;
+        }
+
+        .bie-profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--bie-primary);
+            object-fit: cover;
+            box-shadow: 0 0 15px rgba(255, 87, 34, 0.5);
+            margin-bottom: 15px;
+        }
+
+        .bie-contact-details {
+            font-size: 0.9em;
+            text-align: left;
+            margin-top: 15px;
+            padding-top: 15px;
+        }
+        .bie-contact-details p { margin: 5px 0; color: var(--bie-accent); }
+
+        .bie-main-content { flex-grow: 1; }
+
+        #dynamicGreeting {
+            font-size: 1.2em;
+            color: var(--bie-primary);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .bie-header h1 {
+            font-size: 3.5em;
+            margin: 0 0 10px;
+            font-weight: 900;
+        }
+        .bie-header h2 {
+            font-size: 1.5em;
+            color: var(--bie-primary);
+            margin-bottom: 20px;
+        }
+
+        /* --- Project Grid Styles --- */
+        .bie-projects-section {
+             background: var(--bie-background);
+             padding-top: 0;
+             padding-bottom: 60px;
+        }
+        .bie-project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .bie-project-card {
+            background: var(--bie-card-bg);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px var(--bie-shadow);
+            overflow: hidden;
+            text-align: left;
+        }
+        .bie-project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--bie-primary);
+        }
+        .bie-project-content { padding: 20px; }
+        .bie-project-content h4 { color: var(--bie-dark); margin-top: 0; font-size: 1.4em; }
+        .bie-project-content a { font-weight: 700; color: var(--bie-primary); }
+
+
+        /* --- Skills and Competencies --- */
+        .bie-section-title {
+            font-size: 2.5em;
+            color: var(--bie-dark);
+            margin-bottom: 50px;
+        }
+        
+        .bie-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .bie-skill-card {
+            background: white;
+            padding: 25px;
+            border-left: 5px solid var(--bie-accent);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .bie-skill-card h4 { color: var(--bie-dark); margin-top: 0; }
+        .bie-skill-card p { font-size: 0.9em; }
+
+        /* --- Call to Action (CTA) --- */
+        .bie-cta-section {
+            background: var(--bie-primary);
+            padding: 70px 0;
+            text-align: center;
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+        .bie-cta-btn {
+            display: inline-block;
+            background: white;
+            color: var(--bie-primary);
+            padding: 16px 45px;
+            border-radius: 5px;
+            font-weight: 900;
+            font-size: 1.3em;
+            text-transform: uppercase;
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        .bie-cta-btn:hover { background: var(--bie-accent); color: white; transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            .bie-profile-area { flex-direction: column; text-align: center; }
+            .bie-left-panel { width: 100%; padding-right: 0; border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 20px; }
+            .bie-contact-details { text-align: center; }
+            .bie-main-content { padding-top: 20px; }
+            .bie-header h1 { font-size: 2.8em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bie-header">
+        <div class="container">
+            <div class="bie-profile-area">
+                <div class="bie-left-panel">
+                    <img src="https://techorbitjobs.com/wp-content/uploads/2025/10/testimonial-10.png" alt="Benjamin Wood Profile" class="bie-profile-img">
+                    <div class="bie-contact-details">
+                        <p><strong>Location:</strong> Birmingham, UK</p>
+                        <p><strong>Email:</strong> benjamin.wood@example.com</p>
+                        <p><strong>LinkedIn:</strong> [Your LinkedIn URL]</p>
+                        <p><strong>Tableau Public:</strong> [Your Tableau Public URL]</p>
+                    </div>
+                </div>
+
+                <div class="bie-main-content">
+                    <div id="dynamicGreeting"></div>
+                    <h1>BENJAMIN WOOD</h1>
+                    <h2>BUSINESS INTELLIGENCE ENGINEER</h2>
+                    <p>
+                        I am a results-oriented Business Intelligence Engineer committed to transforming raw data into strategic assets. My expertise spans the entire BI lifecycle: designing ETL pipelines, building robust data models, and creating highly customized, automated reporting solutions that drive measurable business performance improvements.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="bie-section-title">TECHNICAL SKILLS & CORE COMPETENCIES</h2>
+            <div class="bie-skills-grid">
+                <div class="bie-skill-card">
+                    <h4>Data Warehousing & ETL</h4>
+                    <p>Advanced SQL, Dimensional Modeling, Cloud Data Warehouses (Redshift/BigQuery), Python for ETL scripting.</p>
+                </div>
+                <div class="bie-skill-card">
+                    <h4>Visualization & Reporting</h4>
+                    <p>Tableau, Power BI, Looker, designing complex dashboards, KPI definition, and executive summary creation.</p>
+                </div>
+                <div class="bie-skill-card">
+                    <h4>Cloud & Automation</h4>
+                    <p>AWS/GCP data services (S3, Lambda, Dataflow), Apache Airflow/dbt for pipeline orchestration and governance.</p>
+                </div>
+                <div class="bie-skill-card">
+                    <h4>Statistical Analysis</h4>
+                    <p>A/B Testing, hypothesis testing, predictive analytics integration with BI platforms.</p>
+                </div>
+            </div>
+
+            <h2 class="bie-section-title">FEATURED BI SOLUTIONS</h2>
+            <div class="bie-project-grid">
+                <div class="bie-project-card">
+                    <img src="project1.png" alt="Tableau Sales Performance Dashboard Screenshot">
+                    <div class="bie-project-content">
+                        <h4>Executive Sales & Marketing Dashboard</h4>
+                        <p>Built a Tableau dashboard integrating CRM and marketing data, reducing manual data synthesis time by 80%.</p>
+                        <a href="[Link to Live Dashboard]">View Live Dashboard</a>
+                    </div>
+                </div>
+                <div class="bie-project-card">
+                    <img src="project2.png" alt="Airflow Data Pipeline Diagram">
+                    <div class="bie-project-content">
+                        <h4>Automated ETL Pipeline via Airflow</h4>
+                        <p>Designed and orchestrated an Airflow DAG to pull, transform (Python), and load daily data into a cloud data warehouse.</p>
+                        <a href="[Link to Code Repository]">View Code</a>
+                    </div>
+                </div>
+                <div class="bie-project-card">
+                    <img src="project3.png" alt="SQL Data Model Diagram">
+                    <div class="bie-project-content">
+                        <h4>Customer Lifetime Value (CLV) Data Model</h4>
+                        <p>Developed a star schema data model and SQL views specifically designed for accurate CLV reporting and analysis.</p>
+                        <a href="[Link to Documentation]">View Documentation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bie-cta-section">
+        <div class="container">
+            <h3>READY TO BUILD AUTOMATED INSIGHTS?</h3>
+            <a href="[Link to Contact/Project Inquiry]" class="bie-cta-btn">REQUEST A CONSULTATION</a>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const greetingElement = document.getElementById('dynamicGreeting');
+            const date = new Date();
+            const hour = date.getHours();
+            let greeting;
+            if (hour < 12) { greeting = 'Good morning!'; } 
+            else if (hour < 18) { greeting = 'Good afternoon!'; } 
+            else { greeting = 'Good evening!'; }
+            if (greetingElement) { greetingElement.textContent = greeting + ' Welcome to my portfolio,'; }
+        });
+    </script>
+</body>
+</html>
